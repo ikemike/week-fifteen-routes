@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { MatrixService } from '../matrix.service';
 
 @Component({
   selector: 'app-cat',
@@ -10,7 +11,7 @@ export class CatComponent implements OnInit {
 
   public catName: string;
 
-  constructor(private route: ActivatedRoute) { 
+  constructor(private route: ActivatedRoute, private mtrx: MatrixService) { 
 
   }
 
@@ -19,7 +20,13 @@ export class CatComponent implements OnInit {
   }
 
   getCatName() : string {
+    this.initiateTheMatrix();
     return this.route.snapshot.paramMap.get('name');
+
+  }
+
+  public initiateTheMatrix() {
+    this.mtrx.callNeo('okay');    // Call the Matrix
   }
 
 
