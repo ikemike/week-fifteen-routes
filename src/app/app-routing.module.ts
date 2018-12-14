@@ -10,6 +10,7 @@ const routes: Routes = [
   , { path: 'foo', component: FooComponent}
   , { path: 'bar', component: BarComponent}
   , { path: 'cat', component: CatComponent}
+  , { path: 'cat/:name', component: CatComponent}
 
 ];
 
